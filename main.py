@@ -3,6 +3,12 @@ import csv
 import matplotlib.pyplot as plt
 import koreanize_matplotlib
 
+st.markdown(
+    """
+    <h1 style='font-size:20px;'>수도권 교통 카드 데이터 분석 프로젝트(by 서울고 교사 석리송 with GPT-4o)</h1>
+    """, 
+    unsafe_allow_html=True
+)
 
 # CSV 파일 읽기
 @st.cache

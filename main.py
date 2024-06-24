@@ -26,13 +26,23 @@ region_names = [row[0] for row in data]
 # Streamlit 앱 제목
 st.title('LocalSimilarity')
 
-# 지역 이름 선택
-name = st.selectbox('(2024년 기준) 궁금한 지역 이름을 선택해주세요 :', region_names)
+# 지역 이름 선택 및 입력
+input_name = st.text_input('궁금한 지역 이름을 입력하거나 선택해주세요:', '')
 
-if name:
+if input_name:
+    # 입력된 텍스트에 따라 자동완성 기능 제공
+    matching_names = [name for name in region_names if input_name.lower() in name.lower()]
+    if matching_names:
+        selected_name = st.selectbox('자동완성된 지역 목록에서 선택하세요:', matching_names)
+    else:
+        selected_name = input_name
+else:
+    selected_name = st.selectbox('지역 이름을 선택하세요:', region_names)
+
+if selected_name:
     pivot = []
     for row in data:
-        if name in row[0]:
+        if selected_name in row[0]:
             for i in range(3, len(row)):
                 pivot.append(row[i] / row[2])
             break
@@ -48,7 +58,7 @@ if name:
         for i in range(3, len(row)):
             tmp = row[i] / row[2] - pivot[i - 3]
             s = s + tmp ** 2
-        if s < mn and (name not in row[0]):
+        if s < mn and (selected_name not in row[0]):
             mn = s
             result = []
             for i in range(3, len(row)):
@@ -58,8 +68,8 @@ if name:
     # 시각화
     plt.figure(dpi=300)
     plt.style.use('ggplot')
-    plt.title(name + ' 지역과 인구 구조가 가장 비슷한 지역')
-    plt.plot(pivot, label=name)
+    plt.title(selected_name + ' 지역과 인구 구조가 가장 비슷한 지역')
+    plt.plot(pivot, label=selected_name)
     plt.plot(result, label=result_name)
     plt.legend()
 

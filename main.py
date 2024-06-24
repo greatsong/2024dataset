@@ -5,7 +5,7 @@ import koreanize_matplotlib
 
 st.markdown(
     """
-    <h1 style='font-size:20px;'>수도권 교통 카드 데이터 분석 프로젝트(by 서울고 교사 석리송 with GPT-4o)</h1>
+    <h1 style='font-size:20px;'>우리 동네와 가장 비슷한 지역은 어디일까?(by 서울고 교사 석리송)</h1>
     """, 
     unsafe_allow_html=True
 )
@@ -28,9 +28,6 @@ for row in data:
 
 # 지역 이름 목록 생성
 region_names = [row[0] for row in data]
-
-# Streamlit 앱 제목
-st.title('우리 동네와 가장 비슷한 지역은 어디일까?(by 서울고 교사 석리송)')
 
 # 지역 이름 선택 및 입력
 input_name = st.text_input('궁금한 지역 이름을 입력하거나 선택해주세요:', '')

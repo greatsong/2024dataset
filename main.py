@@ -1,6 +1,7 @@
 import streamlit as st
 import csv
 import matplotlib.pyplot as plt
+import koreanize-matplotlib
 
 # CSV 파일 읽기
 @st.cache

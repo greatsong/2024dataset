@@ -2,6 +2,7 @@ import streamlit as st
 import csv
 import matplotlib.pyplot as plt
 import koreanize_matplotlib
+import os
 
 st.markdown(
     """
@@ -9,6 +10,7 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
 
 # CSV 파일 읽기
 @st.cache
@@ -28,6 +30,9 @@ for row in data:
 
 # 지역 이름 목록 생성
 region_names = [row[0] for row in data]
+
+# Streamlit 앱 제목
+st.title('LocalSimilarity')
 
 # 지역 이름 선택 및 입력
 input_name = st.text_input('궁금한 지역 이름을 입력하거나 선택해주세요:', '')
@@ -77,3 +82,4 @@ if selected_name:
     plt.legend()
 
     st.pyplot(plt)
+

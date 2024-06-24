@@ -3,6 +3,7 @@ import csv
 import matplotlib.pyplot as plt
 import koreanize_matplotlib
 
+
 # CSV 파일 읽기
 @st.cache
 def load_data(file_path):
@@ -19,8 +20,14 @@ for row in data:
     for i in range(1, len(row)):
         row[i] = int(row[i])
 
-# 지역 이름 입력받기
-name = st.text_input('(2024년 기준) 궁금한 지역 이름을 입력해주세요 :')
+# 지역 이름 목록 생성
+region_names = [row[0] for row in data]
+
+# Streamlit 앱 제목
+st.title('LocalSimilarity')
+
+# 지역 이름 선택
+name = st.selectbox('(2024년 기준) 궁금한 지역 이름을 선택해주세요 :', region_names)
 
 if name:
     pivot = []

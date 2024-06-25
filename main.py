@@ -30,8 +30,6 @@ for row in data:
 # 지역 이름 목록 생성
 region_names = [row[0] for row in data]
 
-# Streamlit 앱 제목
-st.title('LocalSimilarity')
 
 # 지역 이름 선택 및 입력
 selected_name = st.selectbox('지역명을 입력해주세요(읍면동 단위까지 가능) : ', region_names)
@@ -63,7 +61,7 @@ if selected_name:
             result_name = row[0]
 
     # 시각화
-    plt.figure(dpi=300)
+    plt.figure(figsize = (10,6), dpi=500)
     plt.style.use('ggplot')
     plt.title(selected_name + ' 지역과 인구 구조가 가장 비슷한 지역')
     plt.plot(pivot, label=selected_name)

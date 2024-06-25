@@ -33,19 +33,12 @@ for row in data:
 
 # 지역 이름 목록 생성
 region_names = [row[0] for row in data]
-
-# 지역 이름 선택 및 입력
-input_name = st.text_input('궁금한 지역 이름을 입력하거나 선택해주세요:', '')
-
-if input_name:
-    # 입력된 텍스트에 따라 자동완성 기능 제공
-    matching_names = [name for name in region_names if input_name.lower() in name.lower()]
-    if matching_names:
-        selected_name = st.selectbox('자동완성된 지역 목록에서 선택하세요:', matching_names)
-    else:
-        st.write("입력한 이름과 일치하는 지역이 없습니다. 새로운 이름을 입력하거나 선택해주세요.")
-        selected_name = st.selectbox('지역 이름을 선택하세요:', region_names)
+# 입력된 텍스트에 따라 자동완성 기능 제공
+matching_names = [name for name in region_names if input_name.lower() in name.lower()]
+if matching_names:
+    selected_name = st.selectbox('자동완성된 지역 목록에서 선택하세요:', matching_names)
 else:
+    st.write("입력한 이름과 일치하는 지역이 없습니다. 새로운 이름을 입력하거나 선택해주세요.")
     selected_name = st.selectbox('지역 이름을 선택하세요:', region_names)
 
 if selected_name:

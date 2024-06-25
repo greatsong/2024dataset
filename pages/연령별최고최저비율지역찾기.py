@@ -62,8 +62,6 @@ if age is not None:
             lowest_ratio = age_ratio
             lowest_region = row[0]
     
-    st.write(f"### 연령 {age}의 비율이 가장 높은 지역: {highest_region} ({highest_ratio*100:.2f}%)")
-    st.write(f"### 연령 {age}의 비율이 가장 낮은 지역: {lowest_region} ({lowest_ratio*100:.2f}%)")
     
     highest_pivot = []
     lowest_pivot = []
@@ -78,9 +76,9 @@ if age is not None:
     # 시각화
     plt.figure(figsize=(10, 6), dpi=300)
     plt.style.use('ggplot')
-    plt.title(f'{input_name}에서 연령 {age}의 비율이 가장 높은 지역과 낮은 지역의 인구 구조 비교')
-    plt.plot(highest_pivot, label=f'{highest_region} (Highest)')
-    plt.plot(lowest_pivot, label=f'{lowest_region} (Lowest)')
+    plt.title(f'{input_name}에서 {age}살의 비율이 가장 높은 지역과 낮은 지역의 인구 구조 비교')
+    plt.plot(highest_pivot, label=f'{highest_region} (가장 높은 지역)')
+    plt.plot(lowest_pivot, label=f'{lowest_region} (가장 낮은 지역)')
     plt.xlabel('연령')
     plt.ylabel('비율')
     plt.legend()

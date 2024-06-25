@@ -10,6 +10,11 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+import streamlit as st
+import csv
+import matplotlib.pyplot as plt
+
 # CSV 파일 읽기
 @st.cache
 def load_data(file_path):
@@ -38,7 +43,8 @@ if input_name:
     if matching_names:
         selected_name = st.selectbox('자동완성된 지역 목록에서 선택하세요:', matching_names)
     else:
-        selected_name = input_name
+        st.write("입력한 이름과 일치하는 지역이 없습니다. 새로운 이름을 입력하거나 선택해주세요.")
+        selected_name = st.selectbox('지역 이름을 선택하세요:', region_names)
 else:
     selected_name = st.selectbox('지역 이름을 선택하세요:', region_names)
 
@@ -77,5 +83,3 @@ if selected_name:
     plt.legend()
 
     st.pyplot(plt)
-
-

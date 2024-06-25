@@ -77,11 +77,13 @@ if age is not None:
             highest_pivot = [row[i] / row[2] for i in range(3, len(row))]
         if lowest_region in row[0]:
             lowest_pivot = [row[i] / row[2] for i in range(3, len(row))]
+    if input_name == '' : 
+        input_name = '전국'
 
     # 시각화
     plt.figure(figsize=(10, 6), dpi=300)
     plt.style.use('ggplot')
-    plt.title(f'{}지역에서 {age}살의 비율이 가장 높은 지역과 낮은 지역의 인구 구조 비교')
+    plt.title(f'{input_name}에서 {age}살의 비율이 가장 높은 지역과 낮은 지역의 인구 구조 비교')
     plt.plot(highest_pivot, label=f'{highest_region} (Highest)')
     plt.plot(lowest_pivot, label=f'{lowest_region} (Lowest)')
     plt.xlabel('연령')

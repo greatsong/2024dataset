@@ -14,8 +14,8 @@ st.markdown(
 def load_data(file_path):
     return pd.read_csv(file_path, encoding='utf-8')
 
-data_2024 = load_data('../age.csv')
-data_2008 = load_data('/../age2008.csv')
+data_2024 = load_data('age.csv')
+data_2008 = load_data('age2008.csv')
 
 # 데이터 전처리
 def preprocess_data(df):

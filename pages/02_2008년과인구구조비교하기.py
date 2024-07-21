@@ -10,7 +10,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-@st.cache
+@st.cache_data
 def load_data(file_path):
     return pd.read_csv(file_path, encoding='utf-8')
 
@@ -81,3 +81,4 @@ if age_group is not None:
         st.pyplot(fig)
     else:
         st.write(f"연령대 {age_group}세에 대한 데이터가 존재하지 않습니다.")
+

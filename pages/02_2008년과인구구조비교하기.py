@@ -5,7 +5,7 @@ import koreanize_matplotlib
 
 st.markdown(
     """
-    <h1 style='font-size:20px;'>대한민국 인구 구조 비교 분석</h1>
+    <h1 style='font-size:20px;'>2008년의 인구 구조와 비교하기(by 서울고 교사 석리송)</h1>
     """,
     unsafe_allow_html=True
 )
@@ -29,8 +29,6 @@ data_2008 = preprocess_data(data_2008)
 
 regions_2024 = data_2024.index
 regions_2008 = data_2008.index
-
-st.write("데이터 로드 및 전처리가 완료되었습니다.")
 
 # 특정 지역 인구 구조 변화 비교
 input_region = st.selectbox('비교하고 싶은 지역을 선택하세요:', regions_2024)

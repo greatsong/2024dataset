@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import koreanize-matplotlib
 
 # Streamlit 설정
 st.title("Daily Temperature Data Visualization")

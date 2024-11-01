@@ -1,3 +1,4 @@
+import streamlit as st
 st.title("MBTI 성향 및 궁합 테스트")
 
 name = st.text_input("이름을 입력하세요:")

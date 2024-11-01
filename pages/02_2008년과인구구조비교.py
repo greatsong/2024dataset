@@ -36,7 +36,7 @@ if input_region:
     
     if input_region in regions_2008:
         population_2008 = data_2008.loc[input_region].drop(['2008년02월_계_총인구수', '2008년02월_계_연령구간인구수'])
-        population_2024 = data_2024.loc[input_region].drop(['2024년06월_계_총인구수', '2024년06월_계_연령구간인구수'])
+        population_2024 = data_2024.loc[input_region].drop(['2024년09월_계_총인구수', '2024년09월_계_연령구간인구수'])
         
         ax.plot(population_2008.values, label='2008년')
         ax.plot(population_2024.values, label='2024년')

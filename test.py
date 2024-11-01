@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 import streamlit as st
 import random
 
+=======
+>>>>>>> parent of ead6259 (Update test.py)
 st.title("MBTI 성향 및 궁합 테스트")
 st.header("당신의 성격과 완벽한 궁합을 찾으세요!")
 

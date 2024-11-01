@@ -1,2 +1,4 @@
 matplotlib
 koreanize_matplotlib
+seaborn
+sklearn

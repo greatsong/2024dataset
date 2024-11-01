@@ -3,7 +3,6 @@ import koreanize_matplotlib
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.linear_model import LinearRegression
 import numpy as np
 
@@ -43,6 +42,16 @@ try:
     st.subheader("일교차가 가장 큰 날")
     st.write(max_diurnal_range_day)
 
+    # 히스토그램 시각화
+    st.subheader("평균 기온 히스토그램")
+    bins = st.slider("히스토그램의 bins 수를 선택하세요", min_value=5, max_value=50, value=20)
+    fig, ax = plt.subplots()
+    ax.hist(df['평균기온(℃)'], bins=bins, color='skyblue', edgecolor='black')
+    ax.set_title("평균 기온 히스토그램")
+    ax.set_xlabel("기온 (℃)")
+    ax.set_ylabel("빈도수")
+    st.pyplot(fig)
+
     # 회귀 분석
     st.subheader("회귀 분석: 날짜에 따른 평균 기온 추세")
     df['일수'] = (df.index - df.index.min()).days  # 날짜를 일수로 변환
@@ -54,7 +63,7 @@ try:
 
     # 회귀 분석 그래프
     fig, ax = plt.subplots()
-    sns.scatterplot(x=df.index, y='평균기온(℃)', data=df, ax=ax, label='평균 기온')
+    ax.scatter(df.index, df['평균기온(℃)'], label='평균 기온', color='blue')
     ax.plot(df.index, df['회귀선'], color='red', label='회귀선')
     ax.set_title("평균 기온 회귀 분석")
     ax.set_xlabel("날짜")
@@ -64,4 +73,3 @@ try:
 
 except FileNotFoundError:
     st.error("daily_temp.csv 파일이 존재하지 않습니다. 파일을 동일한 디렉토리에 추가해주세요.")
-

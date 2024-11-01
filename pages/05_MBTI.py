@@ -98,7 +98,7 @@ if name and mbti:
     mbti_info = mbti_descriptions.get(mbti, None)
     
     if mbti_info:
-        st.write(f"{mbti}스러운 성격입니다. {mbti_info['description']}")
+        st.write(f"{name}님은 {mbti_info['description']}")
         st.write(f"**진로 참고점:** {mbti_info['career_advice']}")
         st.subheader("궁합 테스트 결과")
         st.write(f"{name}님과 가장 잘 어울리는 MBTI 타입은 **{mbti_info['best_match']}**입니다.")

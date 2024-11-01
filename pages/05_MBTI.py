@@ -93,7 +93,7 @@ mbti_descriptions = {
     }
 }
 
-if name and mbti:
+if st.button("확인✅") and name and mbti:
     st.subheader(f"{name}님의 MBTI 성향")
     mbti_info = mbti_descriptions.get(mbti, None)
     

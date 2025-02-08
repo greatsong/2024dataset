@@ -11,7 +11,7 @@ st.markdown(
 )
 
 # CSV 파일 읽기
-@st.cache
+@st.cache_data
 def load_data(file_path):
     with open(file_path, newline='', encoding='utf-8') as f:
         data = list(csv.reader(f))
